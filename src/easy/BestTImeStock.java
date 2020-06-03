@@ -4,6 +4,11 @@ package easy;
 
 public class BestTImeStock {
     public static void main(String[] args) {
+        int[] prices = {7,6,1,4,7,2};
+
+        BestTImeStock obj = new BestTImeStock();
+
+        System.out.println(obj.getMaxProfit(prices));
 
     }
 
