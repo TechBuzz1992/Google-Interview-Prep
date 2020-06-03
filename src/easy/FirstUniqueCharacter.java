@@ -4,6 +4,11 @@ import java.util.*;
 
 public class FirstUniqueCharacter {
     public static void main(String[] args) {
+        String str = "aabb";
+
+        FirstUniqueCharacter obj = new FirstUniqueCharacter();
+
+        System.out.println(obj.getFirstUniqueCharacter(str));
 
     }
 
