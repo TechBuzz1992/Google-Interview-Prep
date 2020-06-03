@@ -2,7 +2,7 @@ package easy;
 
 public class ValidPalindromeII {
     public static void main(String[] args) {
-        String str = "abca";
+        String str = "abdefba";
         ValidPalindromeII obj = new ValidPalindromeII();
 
         System.out.println(obj.isValidPalindrome(str));
