@@ -3,7 +3,11 @@ package easy;
 public class ReverseString {
     public static void main(String[] args) {
         String str = "hello";
-        
+
+        ReverseString obj = new ReverseString();
+
+        System.out.println(obj.reverseString(str));
+
         
     }
 
