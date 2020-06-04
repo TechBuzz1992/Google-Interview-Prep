@@ -12,8 +12,16 @@ public class SameTree {
         }
     }
 
-    public boolean isSameTree(TreeNode s, TreeNode t){
-        
+    public boolean isSameTree(TreeNode s, TreeNode t) {
+        if (s == null && t == null) {
+            return true;
+        } else if (s == null || t == null) {
+            return false;
+        } else if (s.data != t.data) {
+            return false;
+        } else {
+            return isSameTree(s.left, t.left) && isSameTree(s.right, t.right);
+        }
     }
 
 }
