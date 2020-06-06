@@ -1,6 +1,6 @@
 package medium;
 
-import java.util.*;
+//import java.util.*;
 
 public class MinimumDominoRotations {
     public static void main(String[] args) {
