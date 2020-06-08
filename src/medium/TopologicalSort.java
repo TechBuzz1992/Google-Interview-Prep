@@ -6,6 +6,7 @@ public class TopologicalSort {
     static class Graph {
         private int V;
         private ArrayList<ArrayList<Integer>> adj;
+
         Graph(int v) {
             V = v;
             adj = new ArrayList<>();

@@ -4,8 +4,8 @@ public class DetectCapital {
     public static void main(String[] args) {
         String str1 = "USA";
         String str2 = "leetcode";
-        String str3 = "Google";
-        String str4 = "gooGle";
+        String str3 = "Medium";
+        String str4 = "medium";
 
         System.out.println(new DetectCapital().detectCapitalUse(str1));
         System.out.println(new DetectCapital().detectCapitalUse(str2));

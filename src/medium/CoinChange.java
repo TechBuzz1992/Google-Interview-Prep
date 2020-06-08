@@ -1,31 +1,36 @@
 package medium;
 
-//import java.util.*;
-
 public class CoinChange {
     public static void main(String[] args) {
-        int[] coins = { 1, 2, 5 };
-        int amount = 12;
-
-        System.out.println(new CoinChange().getCoinChange(coins, amount));
 
     }
 
-    public int getCoinChange(int[] coins, int amount) {
-        int[] ans = new int[amount + 1];
+    public int CoinChangeValue(int[] coins, int amount, int[] dp) {
 
-        ans[0] = 1;
+        if (amount < -1) {
+            return -1;
+        }
+
+        if (amount == 0) {
+            return 0;
+        }
+
+        if (dp[amount - 1] != 0) {
+            return dp[amount - 1];
+        }
+
+        int min = Integer.MAX_VALUE;
 
         for (int coin : coins) {
-            for (int i = 1; i <= amount; i++) {
-                if (i >= coin) {
-                    ans[i] += ans[i - coin];
-                }
-
+            int result = CoinChangeValue(coins, amount - coin, dp);
+            if (result >= 0 && result < min) {
+                min = 1 + result;
             }
         }
 
-        return ans[amount];
+        dp[amount - 1] = min == Integer.MAX_VALUE ? -1 : min;
+
+        return dp[amount - 1];
 
     }
 

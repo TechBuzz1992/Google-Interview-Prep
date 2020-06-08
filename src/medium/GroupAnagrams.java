@@ -4,29 +4,40 @@ import java.util.*;
 
 public class GroupAnagrams {
     public static void main(String[] args) {
+        String[] strs = { "eat", "tea", "tan", "ate", "nat", "bat" };
 
+        List<List<String>> list = groupAnagrams(strs);
+
+        for (int i = 0; i < list.size(); i++) {
+            System.out.println(list.get(i).toString());
+        }
     }
 
-    public List<List<String>> groupedAnagrams(String[] str) {
-        List<List<String>> ans = new ArrayList<>();
-        if (str == null || str.length == 0) {
-            return ans;
-        }
-        Map<String, List<String>> map = new HashMap<>();
-        for (String s : str) {
-            char[] chars = s.toCharArray();
-            Arrays.sort(chars);
-            String sorted = new String(chars);
-            if (!map.containsKey(sorted)) {
-                map.put(sorted, new ArrayList<>());
+    static List<List<String>> groupAnagrams(String[] strs) {
 
+        if (strs == null || strs.length == 0) {
+            return new ArrayList<List<String>>();
+        }
+
+        HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
+
+        Arrays.sort(strs);
+
+        for (String s : strs) {
+            char[] characters = s.toCharArray();
+
+            Arrays.sort(characters);
+
+            String key = String.valueOf(characters);
+
+            if (!map.containsKey(key)) {
+                map.put(key, new ArrayList<String>());
             }
-            map.get(sorted).add(s);
 
+            map.get(key).add(s);
         }
 
-        ans.addAll(map.values());
-        return ans;
+        return new ArrayList<List<String>>(map.values());
     }
 
 }

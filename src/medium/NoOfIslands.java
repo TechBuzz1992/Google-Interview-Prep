@@ -1,40 +1,48 @@
 package medium;
 
+//import java.util.*;
+
 public class NoOfIslands {
     public static void main(String[] args) {
+        int[][] nums = {
+            {1,0,0,1},
+            {0,1,0,0},
+            {1,0,0,1}
+        };
+
+        NoOfIslands obj = new NoOfIslands();
+        System.out.println(obj.noOfIslands(nums));
 
     }
 
-    public int getNoOfIslands(int[][] grid) {
-        if (grid == null || grid.length == 0) {
-            return 0;
-        }
-
-        int numOfIslands = 0;
-        for (int i = 0; i < grid.length; i++) {
-            for (int j = 0; j < grid[i].length; j++) {
-                if (grid[i][j] == 1) {
-                    numOfIslands += dfs(grid, i, j);
+    public int noOfIslands(int[][] nums) {
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums[i].length; j++) {
+                if (nums[i][j] == 1) {
+                    count += bfs(nums, i, j);
+                    // count++;
                 }
 
             }
         }
 
-        return numOfIslands;
+        return count;
 
     }
 
-    public int dfs(int[][] grid, int i, int j) {
-        if (i < 0 || i >= grid.length || j < 0 || j >= grid[i].length) {
+    public int bfs(int[][] nums, int i, int j) {
+        if (i < 0 || i >= nums.length || j < 0 || j >= nums[i].length || nums[i][j] == 0) {
             return 0;
         }
+        nums[i][j] = 0;
+        bfs(nums, i + 1, j);
+        bfs(nums, i - 1, j);
+        bfs(nums, i, j + 1);
+        bfs(nums, i, j - 1);
 
-        grid[i][j] = 0;
-        dfs(grid, i + 1, j);
-        dfs(grid, i - 1, j);
-        dfs(grid, i, j + 1);
-        dfs(grid, i, j - 1);
         return 1;
+
     }
 
 }
