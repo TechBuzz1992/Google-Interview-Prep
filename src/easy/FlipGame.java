@@ -4,6 +4,9 @@ import java.util.*;
 
 public class FlipGame {
     public static void main(String[] args) {
+        String str = "++++";
+
+        System.out.println(new FlipGame().getAllFlips(str));
 
     }
 
@@ -16,7 +19,7 @@ public class FlipGame {
                 return possibleStates;
             }
 
-            String nextState = str.subSequence(0, nextMove) + "--" + str.substring(nextMove);
+            String nextState = str.subSequence(0, nextMove) + "--" + str.substring(nextMove+2);
 
             possibleStates.add(nextState);
 
